@@ -17,4 +17,9 @@ export class UserInteractor implements IUserInteractor {
         const result = await this.userRepository.CreateUser(user)
         return result
     }
+
+    async delete(uid: string): Promise<boolean> {
+        const result = await this.userRepository.Delete(uid)
+        return result
+    }
 }

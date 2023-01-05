@@ -26,5 +26,15 @@ export default function UsersRouter(
         }
     })
 
+    router.delete('/remove', async (req: Request, res: Response) => {
+        try {
+            await userInteractor.delete(req.body)
+            res.statusCode = 200
+            res.json({message: 'User Deleted'})
+        } catch (err: any) {
+            res.status(500).send({message: 'Error deleting user'})
+        }
+    })
+
     return router
 }

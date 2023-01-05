@@ -14,7 +14,8 @@ async function getMongoDS() {
 
     const userDatabase: IDatabaseWrapper = {
         find: (query) => db.collection("user").find(query).toArray(),
-        insertOne: (doc) => db.collection("user").insertOne(doc)
+        insertOne: (doc) => db.collection("user").insertOne(doc),
+        deleteOne: (query) => db.collection("user").deleteOne(query)
     }
 
     return new MongodbUserDataSource(userDatabase)

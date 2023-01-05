@@ -22,4 +22,9 @@ export class MongodbUserDataSource implements IUserDataSource {
             password: item.password
         }))
     }
+
+    async delete(uid: string): Promise<boolean> {
+        const result = await this.database.deleteOne({id: uid})
+        return result !== null
+    }
 }

@@ -18,4 +18,9 @@ export class UserRepository implements IUserRepository {
         return result
     }
 
+    async Delete(uid: string): Promise<boolean> {
+        const result = await this.userDataSource.delete(uid)
+        return result
+    }
+
 }
